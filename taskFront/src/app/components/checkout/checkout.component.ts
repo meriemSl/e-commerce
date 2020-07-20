@@ -8,7 +8,7 @@ import { OrderService } from 'src/app/services/orderServices/order.service';
 })
 export class CheckoutComponent implements OnInit {
   
-  orderData :   any = [] ;
+  orderData :   any = {};
   constructor( private orderService : OrderService) { }
 
   ngOnInit() {
@@ -23,7 +23,9 @@ export class CheckoutComponent implements OnInit {
 checkout()
 { console.log(this.orderData)
   this.orderData.total = total()
-  this.orderService.create(this.orderData);
+  this.orderService.create(this.orderData).subscribe (result => {
+    console.log('success')
+});
 }
 
 }

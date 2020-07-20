@@ -13,18 +13,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 class ApiPostController extends AbstractController
 {
-    // /**
-    //  * @Route("/api/post", name="api_post_index" , methods={"GET"})
-    //  */
-    // public function index( ProductRepository $productRepository)
-    // {   
-    //    $products= $productRepository->findAll();
-    //    dd($products);
-    //     return $this->json([
-    //         'message' => 'Welcome to your new controller!',
-    //         'path' => 'src/Controller/ApiPostController.php',
-    //     ]);
-    // }
+    
 
 
     /**

@@ -25,9 +25,9 @@ export class OrderService {
    }
 
    create(orderData): Observable<HttpResponse<any>> {
- 
+    
     return this.http
-        .post<any>('http://localhost:8000/commande/ajout', orderData)
+        .post<any>('http://localhost:8000/apip/commandes', orderData)
         .pipe(
             map(result => {
                 return result;
