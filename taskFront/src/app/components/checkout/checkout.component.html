@@ -91,7 +91,7 @@
 	          			<h3 class="billing-heading mb-4">Cart Total</h3>
 	          			<p class="d-flex">
 		    						<span>Subtotal</span>
-		    						<span>${{total}}</span>
+		    						<span>${{orderData.total}}</span>
 		    					</p>
 		    					<p class="d-flex">
 		    						<span>Delivery</span>
@@ -104,7 +104,7 @@
 		    					<hr>
 		    					<p class="d-flex total-price">
 		    						<span>Total</span>
-		    						<span>${{total}}</span>
+		    						<span>${{orderData.total}}</span>
 		    					</p>
 								</div>
 	          	</div>
@@ -114,21 +114,21 @@
 									<div class="form-group">
 										<div class="col-md-12">
 											<div class="radio">
-											   <label><input type="radio" name="optradio" class="mr-2"> Direct Bank Tranfer</label>
+											   <label><input type="radio" name="optradio" class="mr-2" value="Direct Bank Tranfer" (change)="onItemChange($event.target.value)"> Direct Bank Tranfer</label>
 											</div>
 										</div>
 									</div>
 									<div class="form-group">
 										<div class="col-md-12">
 											<div class="radio">
-											   <label><input type="radio" name="optradio" class="mr-2"> Check Payment</label>
+											   <label><input type="radio" name="optradio" class="mr-2" value="Check Payment"  (change)="onItemChange($event.target.value)"> Check Payment</label>
 											</div>
 										</div>
 									</div>
 									<div class="form-group">
 										<div class="col-md-12">
 											<div class="radio">
-											   <label><input type="radio" name="optradio" class="mr-2"> Paypal</label>
+											   <label><input type="radio" name="optradio" class="mr-2" value="Paypal" (change)="onItemChange($event.target.value)"> Paypal</label>
 											</div>
 										</div>
 									</div>
@@ -139,7 +139,7 @@
 											</div>
 										</div>
 									</div>
-									<p><a routerLink="/checkout" class="btn btn-primary py-3 px-4">Place an order</a></p>
+									<p><a (click)="checkout()" class="btn btn-primary py-3 px-4">Place an order</a></p>
 								</div>
 	          	</div>
 	          </div>

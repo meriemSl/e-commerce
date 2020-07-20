@@ -11,33 +11,33 @@ use Symfony\Component\HttpFoundation\Session\Session;
 
 class CartApiController extends AbstractController
 {
-    /**
-     * @Route("/cart", name="cart_api"  , methods={"GET"})
-     */
-    public function index(SessionInterface $session , ProductRepository $productRepository)
-    {
-        $panier = $session->get('panier' , []);
-        $panierWithData = [] ;
+    // /**
+    //  * @Route("/cart", name="cart_api"  , methods={"GET"})
+    //  */
+    // public function index(SessionInterface $session , ProductRepository $productRepository)
+    // {
+    //     $panier = $session->get('panier' , []);
+    //     $panierWithData = [] ;
 
-        foreach($panier as $id => $quantity)
-        {
-            $panierWithData[] = [
-                'product' => $productRepository->find($id),
-                'quantity' => $quantity
-            ];
+    //     foreach($panier as $id => $quantity)
+    //     {
+    //         $panierWithData[] = [
+    //             'product' => $productRepository->find($id),
+    //             'quantity' => $quantity
+    //         ];
 
             
-        }
-        dd($panierWithData);
-       $total = 0 ; 
+    //     }
+    //     dd($panierWithData);
+    //    $total = 0 ; 
 
-       foreach($panierWithData as $item )
-       {
-           $totalItem = $item['product'] -> getPrice() * $item['quantity'] ;
-           $total += $totalItem ; 
-       }
-     return $panierWithData ;
-    }
+    //    foreach($panierWithData as $item )
+    //    {
+    //        $totalItem = $item['product'] -> getPrice() * $item['quantity'] ;
+    //        $total += $totalItem ; 
+    //    }
+    //  return $panierWithData ;
+    // }
 
     /**
      * @Route("/cart/api1/{id}", name="cart_api_index" )

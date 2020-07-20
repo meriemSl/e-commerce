@@ -2,29 +2,29 @@
 
 namespace App\Controller;
 use App\Entity\Commande;
-use App\Repository\ProductRepository;
-use Doctrine\ORM\EntityManager;
+use App\Entity\Commandes;
+
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Serializer\SerializerInterface;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 class ApiPostController extends AbstractController
 {
-    /**
-     * @Route("/api/post", name="api_post_index" , methods={"GET"})
-     */
-    public function index( ProductRepository $productRepository)
-    {   
-       $products= $productRepository->findAll();
-       dd($products);
-        return $this->json([
-            'message' => 'Welcome to your new controller!',
-            'path' => 'src/Controller/ApiPostController.php',
-        ]);
-    }
+    // /**
+    //  * @Route("/api/post", name="api_post_index" , methods={"GET"})
+    //  */
+    // public function index( ProductRepository $productRepository)
+    // {   
+    //    $products= $productRepository->findAll();
+    //    dd($products);
+    //     return $this->json([
+    //         'message' => 'Welcome to your new controller!',
+    //         'path' => 'src/Controller/ApiPostController.php',
+    //     ]);
+    // }
 
 
     /**
@@ -35,13 +35,13 @@ class ApiPostController extends AbstractController
         // On vérifie si la requête est une requête Ajax
         
             // On instancie un nouvel commande
-            $commande = new Commande();
+            $commande = new Commandes();
 
             // On décode les données envoyées
             $donnees = $request->getContent() ;
-
-            $post = $serializer -> deserialize($donnees , Commande::class , 'json');
-           
+            
+            $post = $serializer -> deserialize($donnees , Commandes::class , 'json');
+            $post -> setDateCommande(new \DateTime);
             $em->persist($post);
             $em->flush();
             //dd($post);
