@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+ <body class="goto-here">
+  <section class="ftco-section ftco-cart">
+			<div class="container">
+				<div class="row">
+    			<div class="col-md-12 ">
+    				<div class="cart-list">
+	    				<table class="table">
+						    <thead class="thead-primary">
+						      <tr class="text-center">
+						        <th>&nbsp;</th>
+						        <th>&nbsp;</th>
+						        <th>Product name</th>
+						        <th>Price</th>
+						        <th>Quantity</th>
+						        <th>Total</th>
+						      </tr>
+						    </thead>
+						    <tbody  >
+						      <tr class="text-center"  *ngFor="let product of products">
+						        <td class="product-remove"><a (click)=removeItem(product.id)><span class="ion-ios-close"></span></a></td>
+						        
+						        <td class="image-prod">
+								 <div class="img" >
+									<img class="img-fluid" src="assets/images/{{product.image}}.jpg" alt="Colorlib Template">
+								 </div>
+							    </td>
+						        
+						        <td class="product-name">
+						        	<h3>{{product.name}}</h3>
+						        	<p>{{product.description}}</p>
+						        </td>
+						        
+						        <td class="price">${{product.price}}</td>
+						        
+						        <td class="quantity">
+						        	<div class="input-group mb-3">
+										
+					             	<span>  {{product.quantity}} </span> 									
+								</div>
+								  
+					          </td>
+						        
+						        <td class="total">${{product.price * product.quantity}}</td>
+						      </tr><!-- END TR-->
+
+						  
+						    </tbody>
+						  </table>
+					  </div>
+    			</div>
+    		</div>
+    	
+			</div>
+		</section>
+
+    
+  </body>
+</html>
